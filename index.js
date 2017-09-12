@@ -19,13 +19,13 @@ app.route('/buildcallback')
 
     });
 
-process.on('SIGTERM', function() {
-    console.log('Shutting down');
-    app.close(function() {
-        console.log('Exiting');
-        process.exit();
-    });
-});
+// process.on('SIGTERM', function() {
+//     console.log('Shutting down');
+//     app.close(function() {
+//         console.log('Exiting');
+//         process.exit();
+//     });
+// });
 
 app.listen(process.env.PORT, function() {
     console.log('Listening on '+process.env.PORT);
