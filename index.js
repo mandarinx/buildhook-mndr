@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 app.route('/buildcallback')
     .post(function(req, res) {
 
-    console.log(res.body);
+        console.log(req.body);
 
     });
 
