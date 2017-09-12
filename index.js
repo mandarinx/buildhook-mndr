@@ -16,6 +16,7 @@ app.route('/buildcallback')
     .post(function(req, res) {
 
         console.log(req.body);
+        res.json({'oki':'doki'});
 
     });
 
