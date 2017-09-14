@@ -1,6 +1,7 @@
 var express     = require('express'),
     fileupload  = require('express-fileupload'),
     bodyparser  = require('body-parser'),
+    fs          = require('fs'),
     env         = require('dotenv');
 
 env.config();
@@ -32,7 +33,14 @@ app.route('/upload')
         }
 
         Object.keys(req.files).forEach(function(key) {
-            console.log('file.name: '+req.files[key].name);
+            var file = req.files[key];
+            console.log('file.name: '+file.name);
+            fs.writeFile('/tmp/' + file.name, file.data, function(err) {
+                if (err) {
+                    return console.log('Could not write file contents to /tmp/' + file.name);
+                }
+                console.log('File written to /tmp/' + file.name);
+            });
         });
 
         res.status(200).send('OK');
