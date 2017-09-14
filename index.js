@@ -31,8 +31,10 @@ app.route('/upload')
             return res.status(400).send('No files were uploaded');
         }
 
+        console.dir(req.files);
+
         Object.keys(req.files).forEach(function(key) {
-            console.log('file: '+req.files[key].name);
+            console.log('file.name: '+req.files[key].name);
         });
 
         res.status(200).send('OK');
